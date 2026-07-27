@@ -15,10 +15,15 @@ connectDB();
 
 const app = express();
 
+app.use((req, res, next) => {
+    console.log(`${req.method} ${req.originalUrl}`);
+    next();
+});
+
 app.use(cors({
     origin: [
         "http://localhost:5173",
-        "https://lead-management-omega-cyan.vercel.app/"
+        "https://lead-management-omega-cyan.vercel.app"
     ],
     credentials: true
 }));
