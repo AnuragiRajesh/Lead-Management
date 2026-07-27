@@ -18,7 +18,7 @@ const app = express();
 app.use(cors({
     origin: [
         "http://localhost:5173",
-        "https://lead-management-bw2t.onrender.com"
+        "https://lead-management-omega-cyan.vercel.app/"
     ],
     credentials: true
 }));
