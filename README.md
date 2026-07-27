@@ -24,24 +24,6 @@ You can log in directly without registering:
 
 ---
 
-## Features
-
-- ✔ JWT Authentication
-- ✔ Role-based Authorization (Admin / Member)
-- ✔ Lead CRUD Operations
-- ✔ Lead Assignment
-- ✔ Notes Management
-- ✔ Activity Timeline
-- ✔ Search & Filtering
-- ✔ Pagination
-- ✔ Protected Routes
-- ✔ Responsive Dashboard
-- ✔ MongoDB Atlas Integration
-- ✔ RESTful API
-- ✔ Deployment on Render & Vercel
-
----
-
 ## Tech Stack
 
 | Layer     | Technology                                        |
@@ -77,6 +59,24 @@ You can log in directly without registering:
 
 ### Delete Confirmation
 ![Delete](screenshots/lead_delete.png)
+
+---
+
+## Features
+
+- ✔ JWT Authentication
+- ✔ Role-based Authorization (Admin / Member)
+- ✔ Lead CRUD Operations
+- ✔ Lead Assignment
+- ✔ Notes Management
+- ✔ Activity Timeline
+- ✔ Search & Filtering
+- ✔ Pagination
+- ✔ Protected Routes
+- ✔ Responsive Dashboard
+- ✔ MongoDB Atlas Integration
+- ✔ RESTful API
+- ✔ Deployment on Render & Vercel
 
 ---
 
