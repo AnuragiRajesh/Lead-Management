@@ -74,12 +74,37 @@ const getMe = (req, res) => {
   res.json({ user: req.user });
 };
 
-// @desc  Get all users (for assignment dropdown)
+// @desc  Get all users (for assignment dropdown and user list)
 // @route GET /api/auth/users
 // @access Admin only
 const getUsers = async (req, res) => {
-  const users = await User.find().select('_id name email role').sort({ name: 1 });
-  res.json(users);
+  const { page = 1, limit = 10, all } = req.query;
+
+  // If 'all' query param is present, return all users (for dropdown)
+  if (all === 'true') {
+    const users = await User.find().select('_id name email role').sort({ name: 1 });
+    return res.json(users);
+  }
+
+  // Pagination for user list
+  const skip = (Number(page) - 1) * Number(limit);
+  const total = await User.countDocuments();
+
+  const users = await User.find()
+    .select('_id name email role createdAt')
+    .sort({ createdAt: -1 })
+    .skip(skip)
+    .limit(Number(limit));
+
+  res.json({
+    users,
+    pagination: {
+      total,
+      page: Number(page),
+      limit: Number(limit),
+      pages: Math.ceil(total / Number(limit)),
+    },
+  });
 };
 
 module.exports = { register, login, logout, getMe, getUsers };

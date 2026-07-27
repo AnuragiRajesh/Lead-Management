@@ -61,7 +61,7 @@ const LeadDetails = () => {
 
   useEffect(() => {
     if (user?.role === 'admin') {
-      api.get('/auth/users').then(({ data }) => setMembers(data)).catch(() => {});
+      api.get('/auth/users?all=true').then(({ data }) => setMembers(data)).catch(() => {});
     }
   }, [user]);
 

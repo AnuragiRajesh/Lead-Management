@@ -16,7 +16,7 @@ const CreateLead = () => {
   const [toast, setToast] = useState(null);
 
   useEffect(() => {
-    api.get('/auth/users').then(({ data }) => setMembers(data)).catch(() => {});
+    api.get('/auth/users?all=true').then(({ data }) => setMembers(data)).catch(() => {});
   }, []);
 
   const handleChange = (e) => setForm({ ...form, [e.target.name]: e.target.value });
