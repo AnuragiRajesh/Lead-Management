@@ -8,6 +8,7 @@ import Dashboard from './pages/Dashboard';
 import LeadList from './pages/LeadList';
 import LeadDetails from './pages/LeadDetails';
 import CreateLead from './pages/CreateLead';
+import Users from './pages/Users';
 
 function App() {
   return (
@@ -19,38 +20,11 @@ function App() {
           <Route path="/register" element={<Register />} />
 
           {/* Private */}
-          <Route
-            path="/dashboard"
-            element={
-              <PrivateRoute>
-                <Dashboard />
-              </PrivateRoute>
-            }
-          />
-          <Route
-            path="/leads"
-            element={
-              <PrivateRoute>
-                <LeadList />
-              </PrivateRoute>
-            }
-          />
-          <Route
-            path="/leads/create"
-            element={
-              <PrivateRoute adminOnly>
-                <CreateLead />
-              </PrivateRoute>
-            }
-          />
-          <Route
-            path="/leads/:id"
-            element={
-              <PrivateRoute>
-                <LeadDetails />
-              </PrivateRoute>
-            }
-          />
+          <Route path="/dashboard" element={<PrivateRoute><Dashboard /></PrivateRoute>} />
+          <Route path="/leads" element={<PrivateRoute><LeadList /></PrivateRoute>} />
+          <Route path="/leads/create" element={<PrivateRoute adminOnly><CreateLead /></PrivateRoute>} />
+          <Route path="/leads/:id" element={<PrivateRoute><LeadDetails /></PrivateRoute>} />
+          <Route path="/users" element={<PrivateRoute adminOnly><Users /></PrivateRoute>} />
 
           {/* Default */}
           <Route path="/" element={<Navigate to="/dashboard" replace />} />
